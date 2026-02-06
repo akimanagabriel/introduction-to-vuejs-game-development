@@ -16,7 +16,7 @@
   border: 2px grey solid;
 }
 .square:nth-child(even) {
-    background-color: teal;
+  background-color: teal;
 }
 
 .container {
@@ -31,6 +31,8 @@
 </style>
 
 <script setup>
+import { onBeforeUnmount, onMounted } from "vue";
+
 const names = [
   "Japhet",
   "Johan",
@@ -41,4 +43,12 @@ const names = [
   "Caella",
   "Hertier",
 ];
+
+onBeforeUnmount(() => {
+  alert("you are going to hide the board");
+});
+
+onMounted(() => {
+  console.log("component is going to be mounted");
+});
 </script>

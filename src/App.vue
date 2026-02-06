@@ -1,9 +1,12 @@
 <template>
   <div>
-    <Game/>
+    <button @click="isHidden = !isHidden">show/hide</button>
+    <Game v-if="isHidden" />
   </div>
 </template>
 <script setup>
-import Game from './Game.vue';
+import { ref } from "vue";
+import Game from "./Game.vue";
 
+const isHidden = ref(false);
 </script>
