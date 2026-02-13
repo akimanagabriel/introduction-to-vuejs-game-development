@@ -2,7 +2,7 @@
 import { onUpdated, ref } from "vue";
 
 const name = ref("");
-
+// https://github.com/akimanagabriel/introduction-to-vuejs-game-development
 const students = ref(["Roger", "Caella", "Kylo", "Muhire", "Aime"]);
 
 onUpdated(function () {
