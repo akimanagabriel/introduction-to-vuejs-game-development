@@ -1,7 +1,7 @@
 <template>
-  <nav>
-  <router-link to="/home">Home</router-link>  | 
-  <router-link to="/info">Info</router-link>
+  <nav class="navbar navbar-expand-lg bg-primary">
+    <router-link style="color: white" to="/home">Home</router-link> |
+    <router-link style="color: white" to="/info">Info</router-link>
   </nav>
   <RouterView />
 </template>
