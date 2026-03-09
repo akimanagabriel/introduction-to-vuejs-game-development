@@ -1,14 +1,43 @@
 <template>
-  <div class="m-10">
-    <div class="grid grid-cols-3 gap-5">
+  <div class="m-10 flex gap-5">
+    <button
+      @click="currentPage = 'recipes'"
+      class="text-white bg-orange-700 px-6 py-1 rounded"
+    >
+      Recipes
+    </button>
+    <button
+      @click="currentPage = 'users'"
+      class="text-white bg-orange-700 px-6 py-1 rounded"
+    >
+      Users
+    </button>
+  </div>
+
+  <!-- users table -->
+
+  <div v-if="currentPage == 'users'">
+    <Users />
+  </div>
+
+  <!-- recipes -->
+  <div v-if="currentPage == 'recipes'" class="m-10">
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
       <!-- single recipe -->
       <div class="shadow-xl p-5 rounded-xl" v-for="recipe in recipes">
         <img class="rounded-xl" loading="lazy" :src="recipe.image" alt="" />
-        <h1 class="line-clamp-1 text-orange-500 font-bold my-3 text-3xl">{{ recipe.name }}</h1>
+        <h1 class="line-clamp-1 text-orange-500 font-bold my-3 text-3xl">
+          {{ recipe.name }}
+        </h1>
 
         <!-- tags -->
         <div class="grid grid-cols-3 gap-3">
-          <div class="px-4 py-1 bg-orange-100 text-orange-800 rounded-full line-clamp-1 text-center" v-for="tag in recipe.tags">{{ tag }}</div>
+          <div
+            class="px-4 py-1 bg-orange-100 text-orange-800 rounded-full line-clamp-1 text-center"
+            v-for="tag in recipe.tags"
+          >
+            {{ tag }}
+          </div>
         </div>
 
         <h3 class="font-bold underline mb-4">Instructions</h3>
@@ -32,8 +61,10 @@
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue";
+import Users from "./Users.vue";
 
 const recipes = ref([]);
+const currentPage = ref("users");
 
 onMounted(() => {
   // calling api
