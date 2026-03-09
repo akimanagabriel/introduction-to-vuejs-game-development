@@ -2,7 +2,7 @@
   <div class="m-10">
     <h1>All Users</h1>
     <table class="w-full">
-      <thead>
+      <thead class="border">
         <tr class="bg-orange-500 text-white">
           <th class="border py-2">Avatar</th>
           <th class="border">Firstname</th>
